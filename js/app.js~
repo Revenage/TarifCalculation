@@ -1,0 +1,68 @@
+var app = angular
+    .module('app', ["ngRoute", 'carousel','anchorScroll'])
+    .config(function($routeProvider){
+        $routeProvider
+        .when('/home', {
+        url: "/home",
+        templateUrl: "views/home.html"
+    })
+        .when('/about', {
+        url: "/about",
+        templateUrl: "views/about.html"
+    })
+        .when('/contact', {
+        url: "/contact",
+        templateUrl: "views/contact.html"
+    })
+	.when('#', {
+        url: "/home",
+        templateUrl: "views/home.html"
+    })
+        .otherwise({
+	redirectTo: '/home'	
+	});
+});
+angular.module('carousel', ['ui.bootstrap'])
+    .controller('CarouselCtrl', function ($scope) {
+    $scope.slides = [{
+        image: '../img/elektriba.png',
+        name: 'Расчет электроэнергии',
+        text: 'Интерактивный калькулятор, для расчета затрат на электроэнергию, а также способов их экономии',
+        button: {
+            color: 'btn btn-warning btn-lg',
+            ico: 'glyphicon glyphicon-flash'
+        }
+    }, {
+        image: '../img/vodosnabjenie.jpg',
+        name: 'Расчет водоснабжения',
+        text: 'Интерактивный калькулятор, для расчета затрат на горячую и холодную воду, а также способов их экономии',
+        button: {
+            color: 'btn btn-primary btn-lg',
+            ico: 'glyphicon glyphicon-tint'
+        }
+    }, {
+        image: '../img/otopl.jpg',
+        name: 'Расчет отопления',
+        text: 'Интерактивный калькулятор, для расчета затрат на отопление, а также способов их экономии',
+        button: {
+            color: 'btn btn-danger btn-lg',
+            ico: 'glyphicon glyphicon-fire'
+        }
+    }];
+})
+angular.module('anchorScroll', [])
+  .controller('ScrollController', ['$scope', '$location', '$anchorScroll',
+    function ($scope, $location, $anchorScroll) {
+      $scope.gotoBottom = function() {
+        // set the location.hash to the id of
+        // the element you wish to scroll to.
+        $location.hash('bottom');
+
+        // call $anchorScroll()
+        $anchorScroll();
+      };
+    }]);
+
+
+
+
