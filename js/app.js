@@ -1,5 +1,5 @@
 var app = angular
-    .module('app', ["ngRoute", 'carousel','anchorScroll'])
+    .module('app', ["ngRoute",'ui.bootstrap','carousel','anchorScroll', 'formCtrl', 'graphCtrl'])
     .config(function($routeProvider){
         $routeProvider
         .when('/home', {
@@ -14,13 +14,19 @@ var app = angular
         url: "/contact",
         templateUrl: "views/contact.html"
     })
-	.when('#', {
+        .when('#', {
         url: "/home",
         templateUrl: "views/home.html"
     })
+        .when('/Electro', {
+        url: "/Electro",
+        templateUrl: "views/Electro.html",
+        controller: "formCtrl",
+	controller: "graphCtrl"
+    })
         .otherwise({
-	redirectTo: '/home'	
-	});
+    redirectTo: '/home' 
+    });
 });
 
 
