@@ -20,7 +20,7 @@ var app = angular
     })
         .when('/Electro', {
         url: "/Electro",
-        templateUrl: "views/Electro.html",
+        templateUrl: "views/template_Electro.html",
         controller: "formCtrl",
 	controller: "graphCtrl"
     })

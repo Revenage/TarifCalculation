@@ -13,7 +13,8 @@ $scope.calcStat = function () {
     var arrLength = $scope.data.length;
 
      for (var i = 0; i < arrLength; i++) {
-        mas[i] = $scope.data[i].value - $scope.data[0].value;
+         mas[i] = $scope.data[i].value - $scope.data[0].value;
+         (i < 4) ? Calculation.oldTarif=true : Calculation.oldTarif=false;
         $scope.data[i].coast = Calculation.selectConsumers(mas[i] - mas[i-1]);
       };
 

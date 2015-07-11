@@ -1,6 +1,8 @@
 angular.module('carousel', ['ui.bootstrap'])
     .controller('CarouselCtrl', function ($scope) {
-        $scope.slides = [{
+        $scope.button_text = 'Поехали';
+        $scope.slides = [
+            {
             image: 'img/elektriba.png',
             name: 'Расчет электроэнергии',
             text: 'Интерактивный калькулятор, для расчета затрат на электроэнергию, а также способов их экономии',
@@ -29,10 +31,10 @@ angular.module('carousel', ['ui.bootstrap'])
             }
         }];
     })
-    .directive('disableNgAnimate', ['$animate', function($animate) {
+    .directive('disableNgAnimate', ['$animate', function ($animate) {
         return {
             restrict: 'A',
-            link: function(scope, element) {
+            link: function (scope, element) {
                 $animate.enabled(false, element);
             }
         };

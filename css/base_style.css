@@ -3,11 +3,15 @@ body {
 }
 
 .template-field {
-    margin-top: 100px;
+    margin-top: 80px;
     margin-bottom: 50px;
 }
 
 .tech-logo {
     width: 100px;
     height: 100px;
+}
+
+a {
+    text-decoration: none !important;
 }

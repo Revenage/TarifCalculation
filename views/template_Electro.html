@@ -1,0 +1,174 @@
+<div class="container marketing" ng-controller="formCtrl">
+    <div class="row" style="margin-top: 100px">
+        <h1><b>Расчет электроэнергии</b></h1>
+        <hr>
+        <div class="col-md-12" ng-click="kwh()">
+            <h3><b>Укажите категорию потребителей к которой Вы относитесь:</b></h3>
+            <hr>
+            <h4>
+                <input type="radio" value="1" data-ng-model="user.consumersType"> Население, проживающее в жилых домах
+                (в том числе в домах, оборудованных кухонными электроплитами)
+                <hr>
+                <input type="radio" value="2" data-ng-model="user.consumersType"> Население, проживающее в сельской
+                местности (в том числе в домах, оборудованных кухонными электроплитами)
+                <hr>
+                <input type="radio" value="3" data-ng-model="user.consumersType"> Население, проживающее в жилых домах
+                (в том числе в домах гостиничного типа и общежитиях), оборудованных в установленном порядке
+                электроотопительными установками (в том числе в сельской местности)
+                <hr>
+                <input type="radio" value="4" data-ng-model="user.consumersType"> Население, проживающее в
+                многоквартирных домах, не газифицируемых природным газом и в которых отсутствуют или не
+                функционирализованного теплоснабжения (в том числе в сельской местности)
+                <hr>
+                <input type="radio" value="5" data-ng-model="user.consumersType"> Многодетные, приемные семьи и детские
+                дома семейного типа
+                <hr>
+                <input type="radio" value="6" data-ng-model="user.consumersType"> Население, которое рассчитывается с
+                энергоснабжающей организацией по общим расчетным средствам учета и объединенное путем создания
+                юридического лица, жилищно-эксплуатационным организациям, кроме общежитий
+                <hr>
+                <input type="radio" value="7" data-ng-model="user.consumersType"> Общежития
+                <hr>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="form-group">
+                    <label>
+                        <h4>Показания счётчика в прошлом месяце :</h4>
+                    </label>
+                    <input type="text" ng-model="user.lastMonth" class="form-control input-lg" ng-change="kwh()">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <h4>Показания счётчика в текущем месяце:</h4>
+                    </label>
+                    <input type="text" ng-model="user.thisMonth" class="form-control input-lg" ng-change="kwh()">
+                </div>
+                <h3>Вы потребили <span ng-bind="user.kWh | number:0"></span> кВт⋅ч</h3>
+
+                <h3>и оплатите <span ng-bind="user.coast | number:2"></span> грн</h3>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="page-header">
+                <h3><b>Расчет потребления электроенергии бытовой техникой</b></h3>
+            </div>
+            <div class="panel">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <input class="form-control" ng-model="itemName" placeholder="Название"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" ng-model="itemCol" placeholder="Количество"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <input type="number" step="30" class="form-control" ng-model="itemTime"
+                                   placeholder="Время в минутах"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <input type="number" step="100" class="form-control" ng-model="itemPower"
+                                   placeholder="Мощность"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button class="btn btn-default"
+                                    ng-click="addItem(itemName, itemCol, itemTime, itemPower, itemWattHouer)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                Добавить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Прибор</th>
+                        <th>Количество</th>
+                        <th>Время работы</th>
+                        <th>Мощность</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="animation" ng-repeat="item in user.items">
+                        <td>{{item.name}}</td>
+                        <td>{{item.col}} шт.</td>
+                        <td>{{item.time}} минут</td>
+                        <td>{{item.power}} Ватт</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" ng-click="removeItem(item)">Удалить
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-2">
+                <div class="donutbody"></div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <ul ng-repeat="item in user.items" class="animation">
+                    <li class="donutlist">
+                        <h3>
+                            <span class="glyphicon glyphicon-certificate"
+                                  style="color: {{item.color}}; top: 5px;"></span>
+                            {{item.name}}
+                        </h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <hr>
+        <div class="row" ng-controller="graphCtrl as graph">
+            <h3><b>Статистика трат на электроэнергию за год</b></h3>
+            <hr>
+            <div class="col-md-4">
+                <h4>Заполните таблицу потребления:</h4>
+                <table class="table table-hover table-condensed">
+                    <tr ng-repeat="month in user.months">
+                        <td><h4>{{month.name}}</h4></td>
+                        <td><input class="form-control input-sm" type="text" ng-model="month.value"
+                                   ng-change="calcStat()"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-8">
+                <h3 class="text-center">График оплаты</h3>
+                <hr>
+                <div>
+                    <!--bar chart-->
+                    <div class="chart" style="width:100%; height:{{height}}px;">
+                        <!-- Data -->
+                        <div ng-repeat="bar in data | limitTo: -12" class="bar"
+                             style="height:{{bar.coast / max * 100}}%; width:{{width / data.length - 5}}px; left:{{$index / data.length * 100}}%;">
+                            <div class="name-months">
+                                <p class="name-months-text">{{bar.name}}</p>
+                            </div>
+                            <div class="coast-months">
+                                <p class="coast-months-text">{{bar.coast | number: 2}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
