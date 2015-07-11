@@ -32,56 +32,58 @@
 </head>
 <!-- NAVBAR
 ================================================== -->
-  <body data-ng-app="app" data-ng-controller="ScrollController">
-  <a id="bottom"></a>
-  <!--[if lt IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
-            </p>
-    <!-- Carousel
-    ==================================================-->
- <div class="navbar-wrapper">
-      <a id="top"></a>
-      <div class="container">
+<body data-ng-app="app" data-ng-controller="ScrollController">
+<a id="bottom"></a>
+<!--[if lt IE 9]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+          </p>
+  <!-- Carousel
+  ==================================================-->
+<div class="navbar-wrapper">
+    <a id="top"></a>
+
+    <div class="container">
         <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#/home">Project name</a>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/home">Project name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/home">Home</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#/home">Home</a></li>
-                <li><a href="#/about">About</a></li>
-                <li><a href="#/contact">Contact</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-<div data-ng-view class="ng-scope"></div>
-      <!-- FOOTER -->
-<div class="footer container marketing">
-  <div class="row">
-    <footer>
-        <p class="pull-right">
-        <a href="" data-ng-click="gotoBottom()">Наверх</a>
-        </p>
-        <p>© 2015 Company, Inc. · 
-        <a href="">Privacy</a>
-        <a href="">Terms</a>
-        </p>
-     </footer>
-  </div>
 </div>
-    <!-- /.container -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  </body>
+<div data-ng-view class="ng-scope"></div>
+<!-- FOOTER -->
+<div class="footer container marketing">
+    <div class="row">
+        <footer>
+            <p class="pull-right">
+                <a href="" data-ng-click="gotoBottom()">Наверх</a>
+            </p>
+
+            <p>© 2015 Company, Inc. ·
+                <a href="">Privacy</a>
+                <a href="">Terms</a>
+            </p>
+        </footer>
+    </div>
+</div>
+<!-- /.container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+</body>
 </html>

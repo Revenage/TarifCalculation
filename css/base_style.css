@@ -1,4 +1,13 @@
 body {
-    background-color: #fffdf5;
+    background-color: #fffefa;
+}
 
+.template-field {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.tech-logo {
+    width: 100px;
+    height: 100px;
 }
