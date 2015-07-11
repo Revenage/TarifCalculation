@@ -145,12 +145,12 @@
                     <tr ng-repeat="month in user.months">
                         <td><h4>{{month.name}}</h4></td>
                         <td><input class="form-control input-sm" type="text" ng-model="month.value"
-                                   ng-change="calcStat()"></td>
+                                   ng-change="calcStat()" focus></td>
                     </tr>
                 </table>
             </div>
             <div class="col-md-8">
-                <h3 class="text-center">График оплаты</h3>
+                <h3 class="text-center">График оплаты 2015</h3>
                 <hr>
                 <div>
                     <!--bar chart-->

@@ -1,11 +1,17 @@
 app.service('Calculation', function (userData) {
-        //var tarif1 = 0.3084;
-        //var tarif2 = 0.4194;
+
         var tarif1 = 0.366;
         var tarif2 = 0.63;
         var tarif3 = 1.407;
 
     this.selectConsumers = function (diff) {
+        if (this.oldTarif == true) {
+            tarif1 = 0.3084;
+            tarif2 = 0.4194;
+        } else {
+            tarif1 = 0.366;
+            tarif2 = 0.63;
+        };
         switch (userData.user.consumersType) {
             case "1":
                 return one(diff);
