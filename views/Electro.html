@@ -30,19 +30,47 @@
                 <input type="radio" value="7" data-ng-model="user.consumersType"> Общежития
                 <hr>
             </h4>
+    <h4>
+     <input type="radio" value="1" data-ng-model="user.consumersType"> Население, проживающее в жилых домах (в том числе в домах, оборудованных кухонными электроплитами)<hr>
+     <input type="radio" value="2" data-ng-model="user.consumersType"> Население, проживающее в сельской местности (в том числе в домах, оборудованных кухонными электроплитами)<hr>
+     <input type="radio" value="3" data-ng-model="user.consumersType"> Население, проживающее в жилых домах (в том числе в домах гостиничного типа и общежитиях), оборудованных в установленном порядке электроотопительными установками (в том числе в сельской местности)<hr>
+     <input type="radio" value="4" data-ng-model="user.consumersType"> Население, проживающее в многоквартирных домах, не газифицируемых природным газом и в которых отсутствуют или не функционирализованного теплоснабжения (в том числе в сельской местности)<hr>
+     <input type="radio" value="5" data-ng-model="user.consumersType"> Многодетные, приемные семьи и детские дома семейного типа<hr>
+     <input type="radio" value="6" data-ng-model="user.consumersType"> Население, которое рассчитывается с энергоснабжающей организацией по общим расчетным средствам учета и объединенное путем создания юридического лица, жилищно-эксплуатационным организациям, кроме общежитий<hr>
+     <input type="radio" value="7" data-ng-model="user.consumersType"> Общежития<hr>
+    </h4>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+         <div class="form-group">
+            <label>
+              <h4>Показания счётчика в прошлом месяце :</h4>
+            </label>
+            <input type="text" ng-model="user.lastMonth" class="form-control input-lg" ng-change="kwh()">
+          </div>
+          <div class="form-group">
+            <label>
+              <h4>Показаниясчётчика в текущем месяце:</h4>
+            </label>
+            <input type="text" ng-model="user.thisMonth" class="form-control input-lg" ng-change="kwh()">
+          </div>
+          <h3>Вы потребили <span ng-bind="user.kWh | number:0"></span> кВт⋅ч</h3>
+          <h3>и оплатите <span ng-bind="user.coast | number:2"></span> грн</h3>
+          <hr>
         </div>
 
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="form-group">
                     <label>
-                        <h4>Поакзания сёчтчика в прошломмесяце :</h4>
+                        <h4>Показания счётчика в прошлом месяце :</h4>
                     </label>
                     <input type="text" ng-model="user.lastMonth" class="form-control input-lg" ng-change="kwh()">
                 </div>
                 <div class="form-group">
                     <label>
-                        <h4>Показания Показания ПоказанияПоказанияПоказанияПоказаниясчётчика в текущем месяце:</h4>
+                        <h4> Показания счётчика в текущем месяце:</h4>
                     </label>
                     <input type="text" ng-model="user.thisMonth" class="form-control input-lg" ng-change="kwh()">
                 </div>
@@ -128,8 +156,39 @@
                 </ul>
             </div>
         </div>
-
-
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Прибор</th>
+                <th>Количество</th>
+                <th>Время работы</th>
+                <th>Мощность</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="animation-tab" ng-repeat="item in user.items">
+                <td>{{item.name}}</td>
+                <td>{{item.col}} шт.</td>
+                <td>{{item.time}} минут</td>
+                <td>{{item.power}} Ватт</td>
+                <td><button type="button" class="btn btn-danger" ng-click="removeItem(item)">Удалить <span class="glyphicon glyphicon-remove"></span>
+                  </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="col-md-3 col-md-offset-2"><div class="donutbody"></div></div>
+<div class="col-md-5 col-md-offset-1">
+  <ul ng-repeat="item in user.items" class="animation-tab">
+    <li class="donutlist"><h3><span class="glyphicon glyphicon-certificate"></span> {{item.name}}</h3></li>
+  </ul>
+</div>
+</div>
         <hr>
         <div class="row" ng-controller="graphCtrl as graph">
             <h3><b>Статистика трат на электроэнергию за год</b></h3>
@@ -143,6 +202,13 @@
                                    ng-change="calcStat()"></td>
                     </tr>
                 </table>
+          <div>
+          <!--bar chart-->
+          <div class="chart" style="width:100%; height:{{height}}px;">
+            <!-- Data -->
+            <div ng-repeat="bar in data | limitTo: -12" class="bar">
+            <div class="name-months">
+            <p class="name-months-text">{{bar.name}}</p>
             </div>
             <div class="col-md-8">
                 <h3 class="text-center">График оплаты</h3>
@@ -160,7 +226,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
