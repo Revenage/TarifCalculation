@@ -85,10 +85,54 @@ svg text.percent{
   list-style-type: none;
   }
 
-.animation { -webkit-transition: 1s; }
+.animation-tab.ng-enter {
+  -webkit-animation: enter 1000ms ease-out;
+  animation: enter 1000ms ease-out;
+  position: relative;
+  transform-origin: top center;
+  -webkit-perspective: 600px;
+  perspective: 600px;
+}
+@-webkit-keyframes enter {
+  from {
+    transform: rotateX(-90deg);
+  }
 
-.animation.ng-leave { opacity: 1; }
-.animation.ng-leave.ng-leave-active { opacity: 0; }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes enter {
+  from {
+    transform: rotateX(-90deg);
+  }
 
-.animation.ng-enter { opacity: 0; }
-.animation.ng-enter.ng-enter-active { opacity: 1; }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.animation-tab.ng-leave {
+  -webkit-animation: leave 1000ms ease-in;
+  animation: leave 1000ms ease-in;
+  position: relative;
+  transform-origin: top center;
+  -webkit-perspective: 600px;
+  perspective: 600px;
+}
+@-webkit-keyframes leave {
+  to {
+    transform: rotateX(-90deg);
+  }
+  from {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes leave {
+  to {
+    transform: rotateX(-90deg);
+  }
+  from {
+    transform: rotateX(0deg);
+  }
+}

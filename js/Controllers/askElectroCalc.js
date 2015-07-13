@@ -10,7 +10,7 @@ var app = angular
             userData.user.coast = Calculation.selectConsumers(userData.user.kWh);
         };
 
-        $scope.changeDonut = donutChart.change();
+        //$scope.changeDonut = donutChart.change();
 
         $scope.addItem = function (itemName, itemCol, itemTime, itemPower) {
             if (userData.user.items.length < 16) userData.user.items.push({
@@ -47,19 +47,19 @@ app.service('userData', function ($rootScope) {
             {name: 'Утюг', color: "#264E56", col: 1, time: 20, power: 2000}
         ],
         months: [
-            {name: 'Декабрь', value: '',},
-            {name: 'Январь',},
-            {name: 'Февраль',},
-            {name: 'Март',},
-            {name: 'Апрель',},
-            {name: 'Май',},
-            {name: 'Июнь',},
-            {name: 'Июль',},
-            {name: 'Август',},
-            {name: 'Сентябрь',},
-            {name: 'Октябрь',},
-            {name: 'Ноябрь',},
-            {name: 'Декабрь',}
+            {name: 'Декабрь', value: ''},
+            {name: 'Январь'},
+            {name: 'Февраль'},
+            {name: 'Март'},
+            {name: 'Апрель'},
+            {name: 'Май'},
+            {name: 'Июнь'},
+            {name: 'Июль'},
+            {name: 'Август'},
+            {name: 'Сентябрь'},
+            {name: 'Октябрь'},
+            {name: 'Ноябрь'},
+            {name: 'Декабрь'}
         ]
     };
 });
@@ -157,15 +157,12 @@ app.controller('graphController', function ($scope, userData, Calculation) {
             mas[i] = $scope.data[i].value - $scope.data[0].value;
             $scope.data[i].coast = Calculation.selectConsumers(mas[i] - mas[i - 1]);
         }
-        ;
-
         for (var j = 1; j < arrLength - 1; j++) {
             // Find Maximum X Axis Value
             if ($scope.data[j].coast > $scope.max)
 
                 $scope.max = $scope.data[j].coast;
         }
-        ;
     };
     // End Controller
 });
@@ -180,7 +177,7 @@ app.service('donutChart', function (userData) {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
-    }
+    };
 
     this.getRandCol = function () {
         return getRandomColor();
@@ -190,7 +187,7 @@ app.service('donutChart', function (userData) {
         return changeData();
     };
 
-    var salesData = userData.user.items
+    var salesData = userData.user.items;
 
     var svg = d3.select("div.donutbody").append("svg").attr("width", 300).attr("height", 300);
 
@@ -200,7 +197,7 @@ app.service('donutChart', function (userData) {
 
     var changeData = function () {
         Donut3D.transition("salesDonut", insertData(), 150, 100, 30, 0.4);
-    }
+    };
 
     function insertData() {
         return salesData.map(function (d) {

@@ -29,8 +29,8 @@
             </label>
             <input type="text" ng-model="user.thisMonth" class="form-control input-lg" ng-change="kwh()">
           </div>
-          <h3>Вы потребили <sspan ng-bind="user.kWh | number:0"></sspan> кВт⋅ч</h3>
-          <h3>и оплатите <sspan ng-bind="user.coast | number:2"></sspan> грн</h3>
+          <h3>Вы потребили <span ng-bind="user.kWh | number:0"></span> кВт⋅ч</h3>
+          <h3>и оплатите <span ng-bind="user.coast | number:2"></span> грн</h3>
           <hr>
         </div>
       </div>
@@ -77,12 +77,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="animation" ng-repeat="item in user.items">
+            <tr class="animation-tab" ng-repeat="item in user.items">
                 <td>{{item.name}}</td>
                 <td>{{item.col}} шт.</td>
                 <td>{{item.time}} минут</td>
                 <td>{{item.power}} Ватт</td>
-                <td><button type="button" class="btn btn-danger" ng-click="removeItem(item)">Удалить <sspan class="glyphicon glyphicon-remove"></sspan>
+                <td><button type="button" class="btn btn-danger" ng-click="removeItem(item)">Удалить <span class="glyphicon glyphicon-remove"></span>
                   </button>
                 </td>
             </tr>
@@ -94,8 +94,8 @@
 <div class="row">
 <div class="col-md-3 col-md-offset-2"><div class="donutbody"></div></div>
 <div class="col-md-5 col-md-offset-1">
-  <ul ng-repeat="item in user.items" class="animation">
-    <li class="donutlist"><h3><sspan class="glyphicon glyphicon-certificate" style="color: {{item.color}}; top: 5px;"></sspan> {{item.name}}</h3></li>
+  <ul ng-repeat="item in user.items" class="animation-tab">
+    <li class="donutlist"><h3><span class="glyphicon glyphicon-certificate" style="color: {{item.color}}; top: 5px;"></span> {{item.name}}</h3></li>
   </ul>
 </div>
 </div>
@@ -120,7 +120,7 @@
           <!--bar chart-->
           <div class="chart" style="width:100%; height:{{height}}px;">
             <!-- Data -->
-            <div ng-repeat="bar in data | limitTo: -12" class="bar" style="height:{{bar.coast / max * 100}}%; width:{{width / data.length - 5}}px; left:{{$index / data.length * 100}}%;">
+            <div ng-repeat="bar in data | limitTo: -12" class="bar">
             <div class="name-months">
             <p class="name-months-text">{{bar.name}}</p>
             </div>
