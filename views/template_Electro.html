@@ -1,5 +1,5 @@
-<div class="container marketing" ng-controller="formCtrl">
-    <div class="row" style="margin-top: 100px">
+<div class="container marketing template-field" ng-controller="formCtrl">
+    <div class="row">
         <h1><b>Расчет электроэнергии</b></h1>
         <hr>
         <div class="col-md-12" ng-click="kwh()">
@@ -107,7 +107,7 @@
                         <td>{{item.time}} минут</td>
                         <td>{{item.power}} Ватт</td>
                         <td>
-                            <button type="button" class="btn btn-danger" ng-click="removeItem(item)">Удалить
+                            <button type="button" class="btn btn-danger btn-outline" ng-click="removeItem(item)">Удалить
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>
                         </td>
