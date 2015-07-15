@@ -31,55 +31,21 @@
 </head>
 <!-- NAVBAR
 ================================================== -->
-<body data-ng-app="app" data-ng-controller="ScrollController">
+<body data-ng-app="app" data-ng-controller="ScrollController" scroll="no">
 <a id="bottom"></a>
 <!--[if lt IE 9]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
           </p>
   <!-- Carousel
   ==================================================-->
-<div class="navbar-wrapper">
-    <a id="top"></a>
-
-    <div class="container">
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#/home">Project name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#/home">Home</a></li>
-                        <li><a href="#/about">About</a></li>
-                        <li><a href="#/contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div ng-include="'views/navbar-wrapper.html'"></div>
 <div data-ng-view class="ng-scope slidedown"></div>
 <!-- FOOTER -->
-<div class="footer container marketing">
-    <div class="row">
-        <footer>
-            <p>© 2015 Company, Inc. ·
-                <a href="">Privacy</a>
-                <a href="">Terms</a>
-            </p>
-        </footer>
-    </div>
-    <div class="fixbottom">
-            <a class="btn btn-primary btn-outline" data-ng-click="gotoBottom()" href="">
-                <span class="glyphicon glyphicon-arrow-up"></span>
-            </a>
-    </div>
+
+<div class="fixbottom">
+    <a class="btn btn-default" data-ng-click="gotoBottom()" href="">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </a>
 </div>
 </body>
 </html>

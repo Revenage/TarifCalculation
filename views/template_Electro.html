@@ -102,13 +102,18 @@
                     </thead>
                     <tbody>
                     <tr class="animation" ng-repeat="item in user.items">
-                        <td>{{item.name}}</td>
-                        <td>{{item.col}} шт.</td>
-                        <td>{{item.time}} минут</td>
-                        <td>{{item.power}} Ватт</td>
+                        <td>{{item.name}} <br><input ng-show="newForm" type="text"/></td>
+                        <td>{{item.col}} шт. <br><input ng-show="newForm" type="text"/></td>
+                        <td>{{item.time}} минут <br><input ng-show="newForm" type="text"/></td>
+                        <td>{{item.power}} Ватт <br><input ng-show="newForm" type="text"/></td>
                         <td>
-                            <button type="button" class="btn btn-danger btn-outline" ng-click="removeItem(item)">Удалить
-                                <span class="glyphicon glyphicon-remove"></span>
+                            <button type="button" class="btn btn-primary btn-outline" tooltip="Редактировать"
+                                    tooltip-class="toolClass" tooltip-popup-delay='600' tooltip-placement="left"
+                                    ng-click="changeItem(item)"><span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-outline" tooltip="Удалить"
+                                    tooltip-class="toolClass" tooltip-popup-delay='600' tooltip-placement="right"
+                                    ng-click="removeItem(item)"><span class="glyphicon glyphicon-remove"></span>
                             </button>
                         </td>
                     </tr>
@@ -172,3 +177,4 @@
         </div>
 
     </div>
+    <div ng-include="'views/footer.html'"></div>

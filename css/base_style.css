@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-color: #fffefa;
 }
@@ -127,5 +131,20 @@ a {
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
     color: #fff;
+}
+
+.footer {
+    margin-bottom: 40px;
+}
+
+/* Specify styling for tooltip contents */
+.tooltip.toolClass .tooltip-inner {
+    color: #880000;
+    background-color: #ffff66;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+/* Hide arrow */
+.tooltip.toolClass .tooltip-arrow {
+    display: none;
 }
 

@@ -1,6 +1,7 @@
 angular.module('formCtrl', ['ngAnimate'])
     .controller('formCtrl', function ($scope, userData, Calculation, donutChart) {
         $scope.user = userData.user;
+        $scope.newForm = false;
         donutChart.toChange();
         $scope.kwh = function () {
             userData.user.kWh = userData.user.thisMonth - userData.user.lastMonth;
@@ -25,5 +26,8 @@ angular.module('formCtrl', ['ngAnimate'])
                     donutChart.toChange();
                 }
             }
+        };
+        $scope.changeItem = function (item) {
+            $scope.newForm = !$scope.newForm;
         };
     });
