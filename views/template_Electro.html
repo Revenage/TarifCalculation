@@ -63,16 +63,16 @@
                     <tr>
                         <th class="col-md-1"></th>
                         <th class="col-md-2">
-                            <div class="col-md-12">Прибор</div>
+                            <div class="col-md-12 text-center">Прибор</div>
                         </th>
                         <th class="col-md-2">
-                            <div class="col-md-12">Количество</div>
+                            <div class="col-md-12 text-center">Количество</div>
                         </th>
                         <th class="col-md-2">
-                            <div class="col-md-12">Время работы</div>
+                            <div class="col-md-12 text-center">Время работы</div>
                         </th>
                         <th class="col-md-2">
-                            <div class="col-md-12">Мощность</div>
+                            <div class="col-md-12 text-center">Мощность</div>
                         </th>
                         <th class="col-md-1"></th>
                         <th class="col-md-2"></th>
@@ -84,31 +84,31 @@
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input class="form-control" ng-model="itemName" placeholder="Название"/>
+                                    <input class="form-control text-center" ng-model="itemName" placeholder="Название"/>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="number" class="form-control" ng-model="itemCol"
-                                           placeholder="Количество"/>
+                                    <input type="number" class="form-control text-center" ng-model="itemCol"
+                                           placeholder="штук"/>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="number" step="30" class="form-control" ng-model="itemTime"
-                                           placeholder="Время в минутах"/>
+                                    <input type="number" step="30" class="form-control text-center" ng-model="itemTime"
+                                           placeholder=" в минутах"/>
                                 </div>
                             </div>
                         </td>
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="number" step="100" class="form-control" ng-model="itemPower"
-                                           placeholder="Мощность"/>
+                                    <input type="number" step="100" class="form-control text-center" ng-model="itemPower"
+                                           placeholder="Ватт"/>
                                 </div>
                             </div>
                         </td>
@@ -137,19 +137,19 @@
                                                                             ng-model="newName"/></div>
                         </td>
                         <td>
-                            <div class="col-md-12">{{item.col}} шт. <br><input ng-show="newForm && $index==numButton"
+                            <div class="col-md-12 text-right">{{item.col}} шт. <br><input ng-show="newForm && $index==numButton"
                                                                                class="form-control"
                                                                                type="text"
                                                                                ng-model="newCol"/></div>
                         </td>
                         <td>
-                            <div class="col-md-12">{{item.time}} минут <br><input ng-show="newForm && $index==numButton"
+                            <div class="col-md-12 text-right">{{item.time}} минут <br><input ng-show="newForm && $index==numButton"
                                                                                   class="form-control"
                                                                                   type="text"
                                                                                   ng-model="newTime"/></div>
                         </td>
                         <td>
-                            <div class="col-md-12">{{item.power}} Ватт <br><input ng-show="newForm && $index==numButton"
+                            <div class="col-md-12 text-right">{{item.power}} Ватт <br><input ng-show="newForm && $index==numButton"
                                                                                   class="form-control"
                                                                                   type="text"
                                                                                   ng-model="newPower"/></div>
