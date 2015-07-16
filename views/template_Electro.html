@@ -62,10 +62,18 @@
                     <thead>
                     <tr>
                         <th class="col-md-1"></th>
-                        <th class="col-md-2"><div class="col-md-12">Прибор</div></th>
-                        <th class="col-md-2"><div class="col-md-12">Количество</div></th>
-                        <th class="col-md-2"><div class="col-md-12">Время работы</div></th>
-                        <th class="col-md-2"><div class="col-md-12">Мощность</div></th>
+                        <th class="col-md-2">
+                            <div class="col-md-12">Прибор</div>
+                        </th>
+                        <th class="col-md-2">
+                            <div class="col-md-12">Количество</div>
+                        </th>
+                        <th class="col-md-2">
+                            <div class="col-md-12">Время работы</div>
+                        </th>
+                        <th class="col-md-2">
+                            <div class="col-md-12">Мощность</div>
+                        </th>
                         <th class="col-md-1"></th>
                         <th class="col-md-2"></th>
                     </tr>
@@ -80,12 +88,14 @@
                                 </div>
                             </div>
                         </td>
-                        <td><div class="form-group">
-                            <div class="col-md-12">
-                                <input type="number" class="form-control" ng-model="itemCol"
-                                       placeholder="Количество"/>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="number" class="form-control" ng-model="itemCol"
+                                           placeholder="Количество"/>
+                                </div>
                             </div>
-                        </div></td>
+                        </td>
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
@@ -106,32 +116,44 @@
 
                         </td>
                         <td>
-                                <div class="pull-right">
-                                    <button class="btn btn-success"
-                                            ng-click="addItem(itemName, itemCol, itemTime, itemPower, itemWattHouer)">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                        Добавить
-                                    </button>
-                                </div>
+                            <div class="pull-right">
+                                <button class="btn btn-success"
+                                        ng-click="addItem(itemName, itemCol, itemTime, itemPower, itemWattHouer)">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    Добавить
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     <tr class="animation-tab" ng-repeat="item in user.items">
                         <td>
-                            <img class="img-circle" alt="40x40" src="http://placekitten.com/g/40/40"
+                            <img class="img-circle" alt="IMG" ng-src="{{itemPicture(item.name)}}"
                                  style="width: 40px; height: 40px;">
                         </td>
-                        <td><div class="col-md-12">{{item.name}} <br><input ng-show="newForm && $index==numButton" class="form-control"
-                                                     type="text"
-                                                     ng-model="newName"/></div></td>
-                        <td><div class="col-md-12">{{item.col}} шт. <br><input ng-show="newForm && $index==numButton" class="form-control"
-                                                        type="text"
-                                                        ng-model="newCol"/></div></td>
-                        <td><div class="col-md-12">{{item.time}} минут <br><input ng-show="newForm && $index==numButton" class="form-control"
-                                                           type="text"
-                                                           ng-model="newTime"/></div></td>
-                        <td><div class="col-md-12">{{item.power}} Ватт <br><input ng-show="newForm && $index==numButton" class="form-control"
-                                                           type="text"
-                                                           ng-model="newPower"/></div></td>
+                        <td>
+                            <div class="col-md-12">{{item.name}} <br><input ng-show="newForm && $index==numButton"
+                                                                            class="form-control"
+                                                                            type="text"
+                                                                            ng-model="newName"/></div>
+                        </td>
+                        <td>
+                            <div class="col-md-12">{{item.col}} шт. <br><input ng-show="newForm && $index==numButton"
+                                                                               class="form-control"
+                                                                               type="text"
+                                                                               ng-model="newCol"/></div>
+                        </td>
+                        <td>
+                            <div class="col-md-12">{{item.time}} минут <br><input ng-show="newForm && $index==numButton"
+                                                                                  class="form-control"
+                                                                                  type="text"
+                                                                                  ng-model="newTime"/></div>
+                        </td>
+                        <td>
+                            <div class="col-md-12">{{item.power}} Ватт <br><input ng-show="newForm && $index==numButton"
+                                                                                  class="form-control"
+                                                                                  type="text"
+                                                                                  ng-model="newPower"/></div>
+                        </td>
                         <td>
 
                         </td>

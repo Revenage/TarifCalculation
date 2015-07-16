@@ -1,5 +1,5 @@
 angular.module('formCtrl', ['ngAnimate'])
-    .controller('formCtrl', function ($scope, userData, Calculation, donutChart) {
+    .controller('formCtrl', function ($scope, userData, Calculation, donutChart, $filter) {
         $scope.user = userData.user;
         $scope.newForm = false;
         donutChart.toChange();
@@ -9,8 +9,12 @@ angular.module('formCtrl', ['ngAnimate'])
         };
         $scope.addItem = function (itemName, itemCol, itemTime, itemPower) {
             if (userData.user.items.length < 16)
+                function capitalise(string) {
+                    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+                }
+                $filter('lowercase')(itemName);
                 userData.user.items.push({
-                    name: itemName || "Электроприбор",
+                    name: capitalise(itemName) || "Электроприбор",
                     color: donutChart.getRandCol(),
                     col: itemCol || 1,
                     time: itemTime || 60,
@@ -42,6 +46,28 @@ angular.module('formCtrl', ['ngAnimate'])
             userData.user.items[index].power = newPower;
             $scope.newForm = !$scope.newForm;
             donutChart.toChange();
-        }
+        };
+        $scope.itemPicture = function (name)  {
+            switch (name) {
+                case 'Холодильник':
+                    return 'img/freez.jpg';
+                    break;
+                case 'Телевизор'|| 'Телек':
+                    return 'img/tele.jpg';
+                    break;
+                case 'Утюг':
+                    return 'img/iron.jpg';
+                    break;
+                case 'Чайник' || 'Электрочайник':
+                    return 'img/teakettle.jpg';
+                    break;
+                case 'Стиральная машина' || 'Стиралка':
+                    return 'img/wash.jpg';
+                    break;
+                default:
+                    return 'img/electro.jpg';
+                    break;
 
+            }
+        }
     });

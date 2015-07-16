@@ -7,7 +7,7 @@ var getRandomColor = function (){
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-}
+};
 var salesData = userData.user.items;
 
 this.getRandCol = function () {return getRandomColor();};
