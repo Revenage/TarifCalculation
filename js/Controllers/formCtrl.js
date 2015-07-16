@@ -1,7 +1,8 @@
 angular.module('formCtrl', ['ngAnimate'])
-    .controller('formCtrl', function ($scope, userData, Calculation, donutChart, $filter) {
+    .controller('formCtrl', function ($scope, userData, Calculation, donutChart, $filter, $timeout) {
         $scope.user = userData.user;
         $scope.newForm = false;
+        $scope.trigRow = false;
         donutChart.toChange();
         $scope.kwh = function () {
             userData.user.kWh = userData.user.thisMonth - userData.user.lastMonth;
@@ -18,9 +19,9 @@ angular.module('formCtrl', ['ngAnimate'])
                     color: donutChart.getRandCol(),
                     col: itemCol || 1,
                     time: itemTime || 60,
-                    power: itemPower || 200,
+                    power: itemPower || 200
                 });
-            donutChart.toChange();
+                donutChart.toChange();
         };
 
         $scope.removeItem = function (item) {
@@ -52,16 +53,19 @@ angular.module('formCtrl', ['ngAnimate'])
                 case 'Холодильник':
                     return 'img/freez.jpg';
                     break;
-                case 'Телевизор'|| 'Телек':
+                case 'Телевизор':
+                case 'Телек':
                     return 'img/tele.jpg';
                     break;
                 case 'Утюг':
                     return 'img/iron.jpg';
                     break;
-                case 'Чайник' || 'Электрочайник':
+                case 'Чайник':
+                case 'Электрочайник':
                     return 'img/teakettle.jpg';
                     break;
-                case 'Стиральная машина' || 'Стиралка':
+                case 'Стиральная машина':
+                case 'Стиралка':
                     return 'img/wash.jpg';
                     break;
                 default:

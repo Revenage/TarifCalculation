@@ -33,7 +33,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-4 col-md-offset-4">
                 <div class="form-group">
                     <label>
                         <h4>Показания счётчика в прошлом месяце :</h4>
@@ -44,11 +44,11 @@
                     <label>
                         <h4>Показания счётчика в текущем месяце:</h4>
                     </label>
-                    <input type="text" ng-model="user.thisMonth" class="form-control input-lg" ng-change="kwh()">
+                    <input type="text" ng-model="user.thisMonth" class="form-control input-lg" ng-change="kwh(); trigRow=true;">
                 </div>
-                <h3>Вы потребили <span ng-bind="user.kWh | number:0"></span> кВт⋅ч</h3>
+                <div ng-if="trigRow" class="animation-tab"><h3>Вы потребили <span ng-bind="user.kWh | number:0"></span> кВт⋅ч</h3>
 
-                <h3>и оплатите <span ng-bind="user.coast | number:2"></span> грн</h3>
+                <h3>и оплатите <span ng-bind="user.coast | number:2"></span> грн</h3></div>
                 <hr>
             </div>
         </div>
@@ -125,7 +125,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="animation-tab" ng-repeat="item in user.items">
+                    <tr class="animation-tab" ng-repeat="item in user.items" ng-dblclick="changeItem($index)">
                         <td>
                             <img class="img-circle" alt="IMG" ng-src="{{itemPicture(item.name)}}"
                                  style="width: 40px; height: 40px;">
