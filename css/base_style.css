@@ -148,3 +148,7 @@ a {
     display: none;
 }
 
+.table {
+    table-layout: fixed;
+}
+

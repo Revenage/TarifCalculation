@@ -58,63 +58,100 @@
                 <h3><b>Расчет потребления электроенергии бытовой техникой</b></h3>
             </div>
             <div class="panel">
-                <div class="form-inline">
-                    <div class="form-group">
-                        <div class="col-md-8">
-                            <input class="form-control" ng-model="itemName" placeholder="Название"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <input type="number" class="form-control" ng-model="itemCol" placeholder="Количество"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <input type="number" step="30" class="form-control" ng-model="itemTime"
-                                   placeholder="Время в минутах"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <input type="number" step="100" class="form-control" ng-model="itemPower"
-                                   placeholder="Мощность"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-8">
-                            <button class="btn btn-default"
-                                    ng-click="addItem(itemName, itemCol, itemTime, itemPower, itemWattHouer)">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                Добавить
-                            </button>
-                        </div>
-                    </div>
-                </div>
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Прибор</th>
-                        <th>Количество</th>
-                        <th>Время работы</th>
-                        <th>Мощность</th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-2"><div class="col-md-12">Прибор</div></th>
+                        <th class="col-md-2"><div class="col-md-12">Количество</div></th>
+                        <th class="col-md-2"><div class="col-md-12">Время работы</div></th>
+                        <th class="col-md-2"><div class="col-md-12">Мощность</div></th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-2"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="animation" ng-repeat="item in user.items">
-                        <td>{{item.name}} <br><input ng-show="newForm" type="text"/></td>
-                        <td>{{item.col}} шт. <br><input ng-show="newForm" type="text"/></td>
-                        <td>{{item.time}} минут <br><input ng-show="newForm" type="text"/></td>
-                        <td>{{item.power}} Ватт <br><input ng-show="newForm" type="text"/></td>
+                    <tr>
+                        <td></td>
                         <td>
-                            <button type="button" class="btn btn-primary btn-outline" tooltip="Редактировать"
-                                    tooltip-class="toolClass" tooltip-popup-delay='600' tooltip-placement="left"
-                                    ng-click="changeItem(item)"><span class="glyphicon glyphicon-pencil"></span>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input class="form-control" ng-model="itemName" placeholder="Название"/>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="form-group">
+                            <div class="col-md-12">
+                                <input type="number" class="form-control" ng-model="itemCol"
+                                       placeholder="Количество"/>
+                            </div>
+                        </div></td>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="number" step="30" class="form-control" ng-model="itemTime"
+                                           placeholder="Время в минутах"/>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="number" step="100" class="form-control" ng-model="itemPower"
+                                           placeholder="Мощность"/>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                                <div class="pull-right">
+                                    <button class="btn btn-success"
+                                            ng-click="addItem(itemName, itemCol, itemTime, itemPower, itemWattHouer)">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        Добавить
+                                    </button>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr class="animation-tab" ng-repeat="item in user.items">
+                        <td>
+                            <img class="img-circle" alt="40x40" src="http://placekitten.com/g/40/40"
+                                 style="width: 40px; height: 40px;">
+                        </td>
+                        <td><div class="col-md-12">{{item.name}} <br><input ng-show="newForm && $index==numButton" class="form-control"
+                                                     type="text"
+                                                     ng-model="newName"/></div></td>
+                        <td><div class="col-md-12">{{item.col}} шт. <br><input ng-show="newForm && $index==numButton" class="form-control"
+                                                        type="text"
+                                                        ng-model="newCol"/></div></td>
+                        <td><div class="col-md-12">{{item.time}} минут <br><input ng-show="newForm && $index==numButton" class="form-control"
+                                                           type="text"
+                                                           ng-model="newTime"/></div></td>
+                        <td><div class="col-md-12">{{item.power}} Ватт <br><input ng-show="newForm && $index==numButton" class="form-control"
+                                                           type="text"
+                                                           ng-model="newPower"/></div></td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success" tooltip="Сохранить"
+                                    tooltip-class="toolClass" tooltip-popup-delay='600'
+                                    ng-click="checkNewItem($index,newName,newCol,newTime,newPower)"
+                                    ng-show="newForm && $index==numButton"><span
+                                    class="glyphicon glyphicon-ok"></span>
+                            </button>
+                            <span class="pull-right"><button type="button" class="btn btn-primary btn-outline"
+                                                             tooltip="Редактировать"
+                                                             tooltip-class="toolClass" tooltip-popup-delay='600'
+                                                             ng-click="changeItem($index)">
+                                <span class="glyphicon glyphicon-pencil"></span>
                             </button>
                             <button type="button" class="btn btn-danger btn-outline" tooltip="Удалить"
-                                    tooltip-class="toolClass" tooltip-popup-delay='600' tooltip-placement="right"
-                                    ng-click="removeItem(item)"><span class="glyphicon glyphicon-remove"></span>
-                            </button>
+                                    tooltip-class="toolClass" tooltip-popup-delay='600' ng-click="removeItem(item)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button></span>
                         </td>
                     </tr>
                     </tbody>
@@ -127,7 +164,7 @@
                 <div class="donutbody"></div>
             </div>
             <div class="col-md-5 col-md-offset-1">
-                <ul ng-repeat="item in user.items" class="animation">
+                <ul ng-repeat="item in user.items" class="animation-tab">
                     <li class="donutlist">
                         <h3>
                             <span class="glyphicon glyphicon-certificate"

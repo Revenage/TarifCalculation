@@ -31,8 +31,8 @@
 </head>
 <!-- NAVBAR
 ================================================== -->
-<body data-ng-app="app" data-ng-controller="ScrollController" scroll="no">
-<a id="bottom"></a>
+<body data-ng-app="app" data-ng-controller="ScrollController" scroll="no" id="scrollArea">
+<a id="top"></a>
 <!--[if lt IE 9]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
           </p>
@@ -43,7 +43,7 @@
 <!-- FOOTER -->
 
 <div class="fixbottom">
-    <a class="btn btn-default" data-ng-click="gotoBottom()" href="">
+    <a class="btn btn-default" data-ng-click="gotoElement('top')" href="">
         <span class="glyphicon glyphicon-arrow-up"></span>
     </a>
 </div>

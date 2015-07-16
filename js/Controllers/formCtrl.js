@@ -7,7 +7,7 @@ angular.module('formCtrl', ['ngAnimate'])
             userData.user.kWh = userData.user.thisMonth - userData.user.lastMonth;
             userData.user.coast = Calculation.selectConsumers(userData.user.kWh);
         };
-        $scope.addItem = function (itemName, itemCol, itemTime, itemPower, itemWattHour) {
+        $scope.addItem = function (itemName, itemCol, itemTime, itemPower) {
             if (userData.user.items.length < 16)
                 userData.user.items.push({
                     name: itemName || "Электроприбор",
@@ -27,7 +27,21 @@ angular.module('formCtrl', ['ngAnimate'])
                 }
             }
         };
-        $scope.changeItem = function (item) {
+        $scope.changeItem = function (index) {
+            $scope.numButton = index;
             $scope.newForm = !$scope.newForm;
+            $scope.newName = userData.user.items[index].name;
+            $scope.newCol = userData.user.items[index].col;
+            $scope.newTime = userData.user.items[index].time;
+            $scope.newPower = userData.user.items[index].power;
         };
+        $scope.checkNewItem = function (index, newName, newCol, newTime, newPower) {
+            userData.user.items[index].name = newName;
+            userData.user.items[index].col = newCol;
+            userData.user.items[index].time = newTime;
+            userData.user.items[index].power = newPower;
+            $scope.newForm = !$scope.newForm;
+            donutChart.toChange();
+        }
+
     });
