@@ -136,3 +136,10 @@ svg text.percent{
     transform: rotateX(0deg);
   }
 }
+
+.animate.ng-leave {
+  transition: 1s ease-in-out all;
+}
+.animate.ng-leave.ng-leave-active {
+  transition: 1s ease-in-out all;
+}

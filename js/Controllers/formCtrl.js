@@ -68,6 +68,22 @@ angular.module('formCtrl', ['ngAnimate'])
                 case 'Стиралка':
                     return 'img/wash.jpg';
                     break;
+                case 'Пылесос':
+                    return 'img/vacuum.jpg';
+                    break;
+                case 'Фен':
+                    return 'img/hairdryer.jpg';
+                    break;
+                case 'Печь':
+                case 'Электропечь':
+                case 'Духовка':
+                case 'Электродуховка':
+                    return 'img/oven.jpg';
+                    break;
+                case 'Микроволновка':
+                case 'Микроволновая печь':
+                    return 'img/microwave.jpg';
+                    break;
                 default:
                     return 'img/electro.jpg';
                     break;

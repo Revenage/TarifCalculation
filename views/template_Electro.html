@@ -223,10 +223,10 @@
                         <div ng-repeat="bar in data | limitTo: -12" class="bar"
                              style="height:{{bar.coast / max * 100}}%; width:{{width / data.length - 5}}px; left:{{$index / data.length * 100}}%;">
                             <div class="name-months">
-                                <p class="name-months-text">{{bar.name}}</p>
+                                <p class="name-months-text" ng-show="monthisit">{{bar.name}}</p>
                             </div>
                             <div class="coast-months">
-                                <p class="coast-months-text">{{bar.coast | number: 2}}</p>
+                                <p class="coast-months-text" ng-show="bar.coast > 0">{{bar.coast | number: 2}}</p>
                             </div>
                         </div>
                     </div>

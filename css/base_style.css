@@ -134,7 +134,8 @@ a {
 }
 
 .footer {
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* Specify styling for tooltip contents */
@@ -151,4 +152,3 @@ a {
 .table {
     table-layout: fixed;
 }
-

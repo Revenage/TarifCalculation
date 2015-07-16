@@ -7,6 +7,7 @@ angular.module('graphCtrl', [])
         $scope.data = userData.user.months;
         $scope.calcStat = function () {
             // Find Maximum X & Y Axis Values - this is used to position the data as a percentage of the maximum
+            $scope.monthisit = true;
             $scope.max = 0;
             var mas = [];
             var arrLength = $scope.data.length;
