@@ -4,10 +4,9 @@
             <slide data-ng-repeat="slide in slides" active="slide.active">
                 <img data-ng-src="{{slide.image}}" style="margin:auto;">
 
-                <div class="carousel-caption">
-                    <h1 class="classincarousel">{{slide.name}}</h1>
-
-                    <p class="classincarousel">{{slide.text}}</p>
+                <div class="carousel-caption classincarousel">
+                    <h1>{{slide.name}}</h1>
+                    <p>{{slide.text}}</p>
                     <a ng-href="{{slide.button.href}}" role="button" class="{{slide.button.color}}">{{button_text}}
                         <span class="{{slide.button.ico}}"></span></a>
                 </div>

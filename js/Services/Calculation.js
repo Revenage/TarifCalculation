@@ -11,7 +11,7 @@ app.service('Calculation', function (userData) {
         } else {
             tarif1 = 0.366;
             tarif2 = 0.63;
-        };
+        }
         switch (userData.user.consumersType) {
             case "1":
                 return one(diff);

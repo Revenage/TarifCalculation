@@ -11,7 +11,11 @@ angular.module('formCtrl', ['ngAnimate'])
         $scope.addItem = function (itemName, itemCol, itemTime, itemPower) {
             if (userData.user.items.length < 16)
                 function capitalise(string) {
+                    if (string) {
                     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+                    } else {
+                        return;
+                    }
                 }
                 $filter('lowercase')(itemName);
                 userData.user.items.push({

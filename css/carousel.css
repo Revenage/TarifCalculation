@@ -8,9 +8,13 @@ body {
 }
 
 .classincarousel {
-    background: rgba(0, 0, 0, .2);
-    padding: 2px;
+    background: rgba(0, 0, 0, .5);
+  padding: 0 0 50px 0;
+  border-radius: 50px;
+   /* -webkit-filter: blur(20px);
+    filter: blur(20px);*/
 }
+
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */

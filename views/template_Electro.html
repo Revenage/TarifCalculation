@@ -91,7 +91,7 @@
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="number" class="form-control text-center" ng-model="itemCol"
+                                    <input type="number" min="0" class="form-control text-center" ng-model="itemCol"
                                            placeholder="штук"/>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="number" step="30" class="form-control text-center" ng-model="itemTime"
+                                    <input type="number" step="30" min="0" class="form-control text-center" ng-model="itemTime"
                                            placeholder=" в минутах"/>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                         <td>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <input type="number" step="100" class="form-control text-center" ng-model="itemPower"
+                                    <input type="number" step="100" min="0" class="form-control text-center" ng-model="itemPower"
                                            placeholder="Ватт"/>
                                 </div>
                             </div>
@@ -138,19 +138,19 @@
                         </td>
                         <td>
                             <div class="col-md-12 text-right">{{item.col}} шт. <br><input ng-show="newForm && $index==numButton"
-                                                                               class="form-control"
+                                                                               class="form-control text-right"
                                                                                type="text"
                                                                                ng-model="newCol"/></div>
                         </td>
                         <td>
                             <div class="col-md-12 text-right">{{item.time}} минут <br><input ng-show="newForm && $index==numButton"
-                                                                                  class="form-control"
+                                                                                  class="form-control text-right"
                                                                                   type="text"
                                                                                   ng-model="newTime"/></div>
                         </td>
                         <td>
                             <div class="col-md-12 text-right">{{item.power}} Ватт <br><input ng-show="newForm && $index==numButton"
-                                                                                  class="form-control"
+                                                                                  class="form-control text-right"
                                                                                   type="text"
                                                                                   ng-model="newPower"/></div>
                         </td>
@@ -208,8 +208,8 @@
                 <table class="table table-hover table-condensed">
                     <tr ng-repeat="month in user.months">
                         <td><h4>{{month.name}}</h4></td>
-                        <td><input class="form-control input-sm" type="text" ng-model="month.value"
-                                   ng-change="calcStat()" focus></td>
+                        <td><input class="form-control input-sm" type="text" id="input{{$index}}" auto-tab-to="input{{$index+1}}" ng-model="month.value"
+                                   ng-change="calcStat()"></td>
                     </tr>
                 </table>
             </div>
